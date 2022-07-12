@@ -20,6 +20,7 @@ def example_solution(request):
 
     return complete(request)
 
+
 # Supporting Query Method Documentation:
 """
 https://docs.djangoproject.com/en/4.0/ref/models/querysets/#all
@@ -58,12 +59,9 @@ SELECT `school_db_student`.`id`,
 # Print out each student's full name and gpa to the terminal
 def problem_one(request):
 
-  students_gpa = Student.objects.filter(gpa__gt= 3.0).order_by('-gpa')
 
-  for students in students_gpa:
-    print(f'Full Name: {students.first_name} {students.last_name} GPA: {students.gpa}')
 
-  return complete(request)
+    return complete(request)
 
 
 # Supporting Query Method Documentation:
@@ -102,12 +100,9 @@ SELECT `school_db_student`.`id`,
 # Print out the instructor's full name and hire date to the terminal
 def problem_two(request):
 
-  instuctors = Instructor.objects.filter(hire_date__year__lt = 2010)
 
-  for instuctor in instuctors:
-    print(f'Full Name:{instuctor.first_name} {instuctor.last_name} Hire Date: {instuctor.hire_date}') 
 
-  return complete(request)
+    return complete(request)
 
 
 # Supporting Query Method Documentation:
@@ -145,9 +140,9 @@ SELECT `school_db_instructor`.`id`,
 # (Do not hard code his name in the print)
 def problem_three(request):
 
-  courses = Instructor.objects.filter(courses__gt = 2)
 
-  return complete(request)
+
+    return complete(request)
 
 
 # Supporting Query Method Documentation:
