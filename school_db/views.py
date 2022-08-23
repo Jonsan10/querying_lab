@@ -251,9 +251,10 @@ SELECT COUNT(*) AS `__count`
 # NOTE every time you execute this function a duplicate student will be created with a different primary key number
 def problem_five(request):
 
+  student = Student.objects.create(first_name='Michael', last_name='Prye', year='2022', gpa=3.0)
+  print(f'id: {student.id}\nFull Name: {student.first_name} {student.last_name}\nYear: {student.year}\nGPA: {student.gpa}')
 
-
-    return complete(request)
+  return complete(request)
 
 
 # Supporting Query Method Documentation:
@@ -288,7 +289,9 @@ def problem_six(request):
     # Make sure to set this equal to the primary key of the row you just created!
     student_id = 11
 
-
+    Student.objects.filter(id=student_id).update(gpa=3.5)
+    student = Student.objects.get(id=student_id)
+    print(f'id: {student.id}\nFull Name: {student.first_name} {student.last_name}\nGPA: {student.gpa}')
 
     return complete(request)
 
